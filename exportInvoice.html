@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="border border-black text-base text-sm" style="width: 210mm">
+      <div class="flex justify-center w-full border-t border-r border-black">
+        <h4>EXPORT INVOICE​</h4>
+      </div>
+
+      <div class="flex justify-center w-full border-t border-r border-black">
+        <h4>SUPPLY MEANT FOR EXPORT ON PAYMENT OF INTEGRATED TAX​</h4>
+      </div>
+
+      <div class="flex flex-row border-t border-r border-black">
+        <div class="flex flex-col border-r border-black">
+          <div class="w-full border-b border-black">
+            <h6 class="font-bold underline">EXPORTER</h6>
+            <p>{{ $invoice->user->name }}</p>
+            <p>Branch serial 0 : {{$address1}}</p>
+            <p>Branch serial 2 : {{$address2}}</p>
+            <p>IEC CODE: {{$iec_code}}</p>
+          </div>
+          <div>
+            <div>
+              <h6 class="font-bold border-b pl-5 border-black">
+                DETAILS OF CONSIGNEE
+              </h6>
+            </div>
+            <div class="">
+              <h6 class="font-bold">NAME</h6>
+              <p>{{ $address }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col border-r border-black">
+          <div class="border-b border-black px-5">
+            <table>
+              <tbody>
+                <tr>
+                  <td>Invoice No</td>
+                  <td>:</td>
+                  <td>{{$invoice_number }}</td>
+                </tr>
+                <tr>
+                  <td>Invoice Date</td>
+                  <td>:</td>
+                  <td>{{ $invoice_date }}</td>
+                </tr>
+                <tr>
+                  <td>LUT NO</td>
+                  <td>:</td>
+                  <td>{{ $lut_no }}</td>
+                </tr>
+                <tr>
+                  <td>GSTIN</td>
+                  <td>:</td>
+                  <td>{{ $gstin }}</td>
+                </tr>
+                <tr>
+                  <td>USD @</td>
+                  <td>:</td>
+                  <td>{{ $usd }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="border-black">
+            <div class="border-b border-black">
+              <h6 class="font-bold px-5">DETAILS OF NOTIFY PARTYS</h6>
+            </div>
+            <div class="">
+              <h6 class="font-bold">NAME</h6>
+              <p>{{ $address }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col p-5">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI7kDgFnJWNEZxDtPke2nwgkpDSvdq64LD4A"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <div class="flex flex-row border-t border-r border-black">
+        <div class="flex flex-col border-r border-black">
+          <div class="border-b border-black">
+            <h6 class="border-b border-black font-bold px-5">PORT DETAILS</h6>
+            <p>
+              PORT OF LOADING :{{$port_of_loading}}
+              <br />
+              PORT OF DISCHARGE :{{$port_of_discharge}}
+            </p>
+          </div>
+          <div>
+            <p>
+              DELIVERY : {{$delivery }}
+              <br />
+              PAYMENT : {{$payment }}
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col border-r border-black">
+          <div class="border-black">
+            <h6 class="border-b border-black font-bold">BANK DETAILS</h6>
+            <table>
+              <tbody>
+                <tr>
+                  <td>BANK DETAILS</td>
+                  <td>:</td>
+                  <td>{{$bank_details }}</td>
+                </tr>
+                <tr>
+                  <td>SWIFT</td>
+                  <td>:</td>
+                  <td>{{ $swift }}</td>
+                </tr>
+                <tr>
+                  <td>FEDWIRE ROUTING NO.</td>
+                  <td>:</td>
+                  <td>{{ $fedwure_rounting_no }}</td>
+                </tr>
+                <tr>
+                  <td>CREDIT TO</td>
+                  <td>:</td>
+                  <td>{{ $credit_to }}</td>
+                </tr>
+                <tr>
+                  <td>A/C NAME</td>
+                  <td>:</td>
+                  <td>{{ $account_number }}</td>
+                </tr>
+                <tr>
+                  <td>A/C NO.</td>
+                  <td>:</td>
+                  <td>{{ $account_no }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="flex flex-col p-5">
+          <table>
+            <tbody>
+              <tr>
+                <td>IRN</td>
+                <td>:</td>
+                <td>{{$bank_details }}</td>
+              </tr>
+              <tr>
+                <td>ACK NO.</td>
+                <td>:</td>
+                <td>{{ $swift }}</td>
+              </tr>
+              <tr>
+                <td>ACK date</td>
+                <td>:</td>
+                <td>{{ $fedwure_rounting_no }}</td>
+              </tr>
+              <tr>
+                <td>EWB NO.</td>
+                <td>:</td>
+                <td>{{ $credit_to }}</td>
+              </tr>
+              <tr>
+                <td>EWB date</td>
+                <td>:</td>
+                <td>{{ $account_number }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="flex flex-col w-full border-r border-black">
+        <table>
+          <thead>
+            <tr>
+              <th class="border border-black">S.NO</th>
+              <th class="border border-black">DESCRIPTION OF GOODS</th>
+              <th class="border border-black">HSN CODE</th>
+              <th class="border border-black">QTY</th>
+              <th class="border border-black">UOM</th>
+              <th class="border border-black">
+                UNIT PRICE
+                <br />
+                (USD)
+              </th>
+              <th class="border border-black">
+                TOTAL
+                <br />
+                (USD)
+              </th>
+              <th class="border border-black">ORIGIN</th>
+              <th class="border border-black">
+                TAXABLE VALUE
+                <br />
+                (INR)
+              </th>
+              <th class="border border-black" colspan="2">IGST(INR)</th>
+              <th class="border border-black">TOTAL AMOUNT</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-black">1</td>
+              <td class="border border-black">Item1</td>
+              <td class="border border-black">Item1</td>
+              <td class="border border-black">Item1</td>
+              <td class="border border-black">Item1</td>
+              <td class="border border-black">Item1</td>
+              <td class="border border-black">Item1</td>
+              <td class="border border-black">Item1</td>
+              <td class="border border-black">Item1</td>
+              <td class="border border-black">Item1</td>
+              <td class="border border-black">Item1</td>
+              <td class="border border-black">Item1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="p-5"></div>
+      <div
+        class="flex flex-row w-full border-b border-t border-black justify-center"
+      >
+        <div class="flex flex-col p-4 border-r border-l border-black">
+          USD DOLLAR ($)
+        </div>
+        <div class="flex flex-col border-r border-black">
+          <div class="flex flex-row px-2 border-b border-black">CIF</div>
+          <div class="flex flex-row px-2 border-b border-black">ROUND OFF</div>
+          <div class="flex flex-row px-2">TOTAL USD</div>
+        </div>
+        <div class="flex flex-col mr-10 border-r border-black">
+          <div class="flex flex-row px-2 border-b border-black">$14444</div>
+          <div class="flex flex-row px-2 border-b border-black">$14456</div>
+          <div class="flex flex-row px-2">$14444</div>
+        </div>
+        <div class="flex flex-col p-4 border-r border-l border-black ml-10">
+          INR (Rs.)
+        </div>
+        <div class="flex flex-col border-r border-black">
+          <div class="flex flex-row px-2 border-b border-black">CIF+GST</div>
+          <div class="flex flex-row px-2 border-b border-black">ROUND OFF</div>
+          <div class="flex flex-row px-2">TOTAL</div>
+        </div>
+        <div class="flex flex-col border-r border-black">
+          <div class="flex flex-row px-2 border-b border-black">14444</div>
+          <div class="flex flex-row px-2 border-b border-black">14456</div>
+          <div class="flex flex-row px-2">14444</div>
+        </div>
+      </div>
+      <div class="p-5"></div>
+      <div class="flex flex-row w-full border-b border-t border-black">
+        <h3 class="font-bold underline">AMOUNT IN WORDS :</h3>
+        fourteen thousand, four hundred forty-four dollars
+      </div>
+      <div class="flex flex-row w-full border-b border-black py-5">
+        <h3 class="font-bold underline">NOTE :</h3>
+        fourteen thousand, four hundred forty-four dollars
+      </div>
+      <div class="flex flex-row w-full border-b border-black">
+        <div class="flex flex-col py-2 border-r border-black">
+          <h3 class="font-bold underline">DECLARATION</h3>
+          <p>
+            1.We declare that this invoice shows the actual price of the goods
+            described and that all particulars are true and correct
+          </p>
+          <p>2.We intend to claim benefits under the RoDTEP Scheme</p>
+          <p>3.We intend to claim Drawback.</p>
+          <p>
+            4.We are abide by the provisional of FEMA Act, regarding
+            realisation.
+          </p>
+        </div>
+        <div class="flex flex-col py-2 px-4 border-black">
+          <p>
+            FOR: M/S. Mewar Trading Company
+
+            <br />
+            <br />
+            <br />
+          </p>
+          <p class="font-bold">Authorized Signatory</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
